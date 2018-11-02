@@ -7,7 +7,7 @@
     - Note: You can leave this up as long as you want as long as you don't need to make any changes to the back end.
 ### Client
 - To run the client navigate to the client folder
-    - Type in the command `npm run dev` or `npm start`
+    - Type in the command `npm run dev` to run build version on localhost:8080 or `npm start` to run on localhost:5000 or run `node server.js` to run on localhost:5000
     - wait for it to compile and go to localhost:8080
     - Note: This has live reload so you don't need to restart it when updating the client to see changes (or reload the page, it will handle that for you), so yo ucan leave it up as long as you want to develop one you launch it.
 
