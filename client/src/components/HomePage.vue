@@ -39,7 +39,7 @@ export default {
 
       //open xmlhttp request
       var xhr = new XMLHttpRequest();
-      xhr.open('GET', 'http://localhost:3000/users/', true);
+      xhr.open('GET', 'https://pic-app-client.herokuapp.com/users/', true);
       xhr.responseType = 'json';
       xhr.onload = function () {
           if (xhr.readyState === xhr.DONE) {

@@ -96,7 +96,7 @@ export default {
       console.log(imageLink);
 
       //update user schema with new photo sub doc by passing in url parameters
-      let url = 'http://localhost:3000/users/' + this.user + `?url=${imageLink}&lon=${this.lon}&lat=${this.lat}`;
+      let url = 'https://pic-app-client.herokuapp.com/users/' + this.user + `?url=${imageLink}&lon=${this.lon}&lat=${this.lat}`;
       console.log(url);
       var xhr = new XMLHttpRequest();
       xhr.open('PUT', url, true);
