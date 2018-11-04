@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "npm build && concurrently \"npm run server\" \"npm run webpack\"",
-    "webpack": "webpack-dev-server --inline --progress --config client/build/webpack.dev.conf.js",
+    "webpack": "node node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --progress --config client/build/webpack.dev.conf.js",
     "server": "node server/bin/www"
   },
   "dependencies": {
