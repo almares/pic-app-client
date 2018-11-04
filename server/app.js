@@ -32,7 +32,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 //Serve static files in client this is one of the things that could possibly be broekn
-app.use(express.static('./client'));
+app.use(express.static('./client/dist/'));
 
 //Routes
 app.use('/', indexRouter);
