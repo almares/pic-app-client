@@ -6,7 +6,7 @@
     "start": "npm build && concurrently \"npm run server\" \"npm run webpack\"",
     "webpack": "node node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --progress --config client/build/webpack.dev.conf.js",
     "server": "node server/bin/www",
-    "heroku-postbuild": "webpack -p --config client/build/webpack.dev.conf.js"
+    "heroku-postbuild": "webpack -p"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
