@@ -1,0 +1,13 @@
+{
+  "name": "picapp",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "concurrently \"npm run server\" \"npm run webpack\"",
+    "webpack": "webpack-dev-server --inline --progress --config client/build/webpack.dev.conf.js",
+    "server": "node server/bin/www"
+  },
+  "dependencies": {
+    "concurrently": "^4.0.1"
+  }
+}

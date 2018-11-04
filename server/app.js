@@ -31,8 +31,8 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(cors());
 
-//Serve static files in public
-app.use(express.static(path.join(__dirname, 'public')));
+//Serve static files in client this is one of the things that could possibly be broekn
+app.use(express.static('./client'));
 
 //Routes
 app.use('/', indexRouter);

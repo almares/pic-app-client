@@ -1,9 +1,10 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+
+// Server index.html page when request to the root is made
+router.get('/', function (req, res) {
+  res.sendFile('index.html', { root: __dirname + "/../../client/" } );
 });
 
 module.exports = router;
