@@ -6,10 +6,10 @@
       :map-options="{
         style: 'mapbox://styles/mapbox/dark-v9',
         center: [-96, 37.8],
-        zoom: 10 }"
-        @map-load="mapLoaded"
+        zoom: 3 }"
+        @map-init="mapLoaded"
         @map-click="mapClicked"
-        @zoomend="addedMarker"
+        @map-zoomend="resetStyle"
         ref="map">
     </mapbox>
   </div>
@@ -79,6 +79,10 @@ export default {
       console.log(map);
       },
 
+    resetStyle() {
+      console.log("zoom event finished, we need to reset the style as it gets messed up");
+      console.log(this.map);
+    },
 
     mapClicked(map, e) {
       //alert(e.lngLat.toArray());

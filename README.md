@@ -1,8 +1,8 @@
 # Documentation
 ## How to run:
-- In order to run, navigate to root of project and type in console `npm run server`
+- In order to run, navigate to root of project and type in console `npm start`
 - Go to `localhost:3000` to view web app
-- Note: When testing locally, be sure to change every link base url from `(your heroku link)` to `localhost:3000` and revert it back for heroku deployment
+- Note: When testing locally, be sure to change every link base url from `(your heroku link)` to `localhost:3000` and revert it back for heroku deployment (although if a current version of the api was deployed previously that already serves that same route to the database, you can still modify database without changing it back to localhost)
 - To deploy to heroku:
     - Follow the heroku tutorial online (something like `heroku create <your app name here>`)
     - push to that repo (`git push heroku master` or whatever branch your on)
@@ -16,14 +16,14 @@
 
 
 ## Things that might break: 
-- No heroku testing has been done, so its unknown if Google sign in works as intended
-- Since Express and Vue are on different ports, its unknown if on heroku they will work as intended
-- After adding about 20 locations, something random error occured when trying to add another photo, deleting the user fixed the problem
-- Weird zoom in bug
+- Since Vue and Express both have routers, be sure to not have two routes overlap between client and api
+- After adding about 20 locations, something random error occured when trying to add another photo, deleting the user fixed the problem, haven't replicated this issue 
+
 
 
 ## Features to implement
 ### Front end:
+- Need to add url to Oath authorization to get gooogle verification set up
 - UI for adding photos (they need a place to get location like a button, a submit button, a search bar and a place to enter coordinates if they have to (optional))
 - Some UI for deleting photos
 - change navbar based on state of sign in
