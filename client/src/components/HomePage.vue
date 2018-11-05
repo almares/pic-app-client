@@ -6,9 +6,10 @@
       :map-options="{
         style: 'mapbox://styles/mapbox/dark-v9',
         center: [-96, 37.8],
-        zoom: 3 }"
+        zoom: 10 }"
         @map-load="mapLoaded"
         @map-click="mapClicked"
+        @zoomend="addedMarker"
         ref="map">
     </mapbox>
   </div>
