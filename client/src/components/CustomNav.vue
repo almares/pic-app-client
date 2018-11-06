@@ -38,6 +38,7 @@ export default {
        * As the very least, a valid client_id must present.
        * @type {Object}
        */
+
       googleSignInParams: {
         client_id: '728975308271-pk06eacp60cv1j16ngm0sft0a9gr1snj.apps.googleusercontent.com'
       }
