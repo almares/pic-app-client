@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-inverse">
+  <nav class="navbar navbar-inverse" id="nav">
     <div class="container-fluid">
       <div class="navbar-header">
         <a class="navbar-brand" href="#">PicMap</a>
@@ -148,4 +148,7 @@ export default {
     color: #fff;
     box-shadow: 0 3px 0 #0f69ff;
   }
+#nav {
+  margin-bottom: 0px;
+}
 </style>
