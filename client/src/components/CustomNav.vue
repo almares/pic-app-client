@@ -9,14 +9,15 @@
             <g-signin-button
               :params="googleSignInParams"
               @success="onSignInSuccess"
+              @click="login"
               @error="onSignInError">
               Sign in
             </g-signin-button>
           </li>
-          <li><a href="#" @click="myFunction"><span class="glyphicon glyphicon-user"></span> Sign Out</a></li>
+          <li><a href="#" @click="login"><span class="glyphicon glyphicon-user"></span> Sign Out</a></li>
           <li><a>
               <div class="custom-file">
-                  <input type="file" class="custom-file-input" id="inputGroupFile02" style="display: none;" @change="inputHandler($event)">
+                  <input v-if="user != 'NULL'" type="file" class="custom-file-input" id="inputGroupFile02" style="display: none;" @change="inputHandler($event)">
                   <label class="custom-file-label" for="inputGroupFile02"><span class="glyphicon glyphicon-upload"></span> Choose file </label>
               </div>
           </a></li>
@@ -29,9 +30,10 @@ export default {
   name: 'HomePage',
   props: ['lon', 'lat'],
   data () {
+    isLoggedIn: false,
     return {
       file: undefined,
-      user:'dog',
+      user:'NULL',
       /**
        * The Auth2 parameters, as seen on
        * https://developers.google.com/identity/sign-in/web/reference#gapiauth2initparams.
@@ -45,6 +47,9 @@ export default {
     }
   },
   methods: {
+    login: function() {
+      this.isLoggedIn = !this.isLoggedIn;
+    },
     onSignInSuccess (googleUser) {
       // `googleUser` is the GoogleUser object that represents the just-signed-in user.
 
