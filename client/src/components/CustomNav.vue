@@ -30,7 +30,6 @@ export default {
   name: 'HomePage',
   props: ['lon', 'lat'],
   data () {
-    isLoggedIn: false,
     return {
       file: undefined,
       user:'NULL',
@@ -47,9 +46,6 @@ export default {
     }
   },
   methods: {
-    login: function() {
-      this.isLoggedIn = !this.isLoggedIn;
-    },
     onSignInSuccess (googleUser) {
       // `googleUser` is the GoogleUser object that represents the just-signed-in user.
 
