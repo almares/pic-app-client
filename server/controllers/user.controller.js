@@ -1,6 +1,6 @@
 
 /* Dependencies */
-var mongoose = require('mongoose'), 
+var mongoose = require('mongoose'),
     User = require('../models/User.js');
 
 /* Create a user */
@@ -29,26 +29,26 @@ exports.read = function(req, res) {
       res.status(200).send(docs);
     }
   });
-  
+
 };
 
 /* Update a user */
 exports.updateAddPhoto = function(req, res) {
-  // Send the user you want to update and the photo you want to append 
+  // Send the user you want to update and the photo you want to append
   let user;
   let photo = {
                "url": req.query.url,
-               "coordinates" : 
+               "coordinates" :
                 {
                   "latitude": parseFloat(req.query.lat),
                   "longitude": parseFloat(req.query.lon)
                 }
               }
- 
+
   if(req.body != null) {
     user = req.body[0];
     user.updated_at = new Date();
-      
+
     //Get user photos
     let photos = req.body[0].photos;
     photos.push(photo);
@@ -69,18 +69,18 @@ exports.updateAddPhoto = function(req, res) {
 };
 
 /* Delete a user */
-exports.delete = function(req, res) {
+exports.deleteUser = function(req, res) {
 
  var user = req.user;
- 
+
   // find the user with code identifier
-  User.findOneAndRemove({ _id: user._id }, function(err) {
+  User.findOneAndRemove({ _id: user._id}, function(err) {
     if (err) {
       res.status(400).send(err);
     }
     else {
       res.json(user);
-      res.status(200).send();
+      res.status(201).send();
     }
 
   });
@@ -100,11 +100,11 @@ exports.list = function(req, res) {
 
 };
 
-/* 
-  Middleware: find a user by its ID, then pass it to the next request handler. 
+/*
+  Middleware: find a user by its ID, then pass it to the next request handler.
 
-  Find the user using a mongoose query, 
-        bind it to the request object as the property 'user', 
+  Find the user using a mongoose query,
+        bind it to the request object as the property 'user',
         then finally call next
  */
 exports.userByID = function(req, res, next, id) {

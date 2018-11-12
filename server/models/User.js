@@ -1,29 +1,33 @@
 /* Import mongoose and define any variables needed to create the schema */
-var mongoose = require('mongoose'), 
+var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
-    
+
 /* Create your schema */
 var photoSchema = new Schema({
     url: {
-        type: String, 
-    }, 
+        type: String,
+    },
     coordinates: {
-        latitude: Number, 
+        latitude: Number,
         longitude: Number
     },
+    description: String
 });
 
 var userSchema = new Schema({
     username: {
-        type: String, 
+        type: String,
         required: true,
         unique: true
-    }, 
-    photos: [photoSchema], 
+    },
+    password: String,
+    photos: [photoSchema],
     created_at: Date,
     updated_at: Date
+
 });
+userSchema.add({friends: [userSchema]});
 
 /* create a 'pre' function that adds the updated_at (and created_at if not already there) property */
 userSchema.pre('save', function(next) {
