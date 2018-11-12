@@ -1,6 +1,7 @@
 <template>
   <div class="map">
-    <CustomNav  :lon="lon" :lat="lat" @addedmarker="addedMarker"></CustomNav>
+    <CustomNav v-if:"isLoggedIn" :lon="lon" :lat="lat" @addedmarker="addedMarker"></CustomNav>
+    <Login v-else ></Login>
     <mapbox
       access-token="pk.eyJ1IjoiZHlsYW5hbHZhcmV6MSIsImEiOiJjam4wbjhhdnkxYjVkM3Fyb2luYjhqenZwIn0.XxYiYeuAkCkeBheh1_hYFA"
       :map-options="{
@@ -22,6 +23,7 @@ export default {
   name: 'HomePage',
   data () {
     return {
+      isLoggedIn: false,
       users : [],
       lon: undefined,
       lat: undefined,
