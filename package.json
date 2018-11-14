@@ -3,9 +3,10 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "npm run build && npm run server",
+    "start": "node server/bin/www",
     "webpack": "node node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --progress --config client/build/webpack.dev.conf.js",
     "server": "node server/bin/www",
+    "dev": "npm run build && npm run server",
     "build": "node client/build/build.js"
   },
   "dependencies": {
