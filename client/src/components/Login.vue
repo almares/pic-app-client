@@ -19,16 +19,19 @@
             }
         },
         methods: {
+		    //login trigger 
             login() {
+			    //check if username and password are empty
                 if(this.input.username != "" && this.input.password != "") {
+				    //check if username and password consistent with mock data
                     if(this.input.username == this.$parent.mockAccount.username && this.input.password == this.$parent.mockAccount.password) {
-                        this.$emit("isLoggedIn", true);
-                        this.$router.replace({ name: "secure" });
+                        this.$emit("isLoggedIn", true); //login success
+                        this.$router.replace({ name: "secure" }); router switch
                     } else {
-                        console.log("The username and / or password is incorrect");
+                        console.log("The username and / or password is incorrect"); //if incorrect username or password
                     }
                 } else {
-                    console.log("A username and password must be present");
+                    console.log("A username and password must be present");//if no username or password input
                 }
             }
         }
