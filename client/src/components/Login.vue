@@ -1,6 +1,8 @@
 <template>
     <div id="login">
         <h1>Login</h1>
+        <h4>or</h4>
+        <button id="prettyButton" type="button" v-on:click="createAccount()">create an account</button>
         <input type="text" name="username" v-model="input.username" placeholder="Username" />
         <input type="password" name="password" v-model="input.password" placeholder="Password" />
         <button type="button" v-on:click="login()">Login</button>
@@ -30,6 +32,9 @@
                 } else {
                     console.log("A username and password must be present");
                 }
+            },
+            createAccount() {
+
             }
         }
     }
@@ -43,5 +48,9 @@
         margin: auto;
         margin-top: 200px;
         padding: 20px;
+    }
+
+    #prettyButton {
+        /* Make this look like a hyperlink */
     }
 </style>
