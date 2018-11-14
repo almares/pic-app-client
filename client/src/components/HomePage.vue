@@ -1,10 +1,12 @@
 <template>
   <div class="map">
-    <CustomNav v-if:"isLoggedIn" :lon="lon" :lat="lat" @addedmarker="addedMarker"></CustomNav>
-    <Login v-else ></Login>
-    <mapbox
-      access-token="pk.eyJ1IjoiZHlsYW5hbHZhcmV6MSIsImEiOiJjam4wbjhhdnkxYjVkM3Fyb2luYjhqenZwIn0.XxYiYeuAkCkeBheh1_hYFA"
-      :map-options="{
+    
+    <div v-if="isLoggedIn">
+      <CustomNav v-if="isLoggedIn" :lon="lon" :lat="lat" @addedmarker="addedMarker"></CustomNav>
+    
+      <mapbox
+        access-token="pk.eyJ1IjoiZHlsYW5hbHZhcmV6MSIsImEiOiJjam4wbjhhdnkxYjVkM3Fyb2luYjhqenZwIn0.XxYiYeuAkCkeBheh1_hYFA"
+        :map-options="{
         style: 'mapbox://styles/mapbox/dark-v9',
         center: [-96, 37.8],
         zoom: 3 }"
@@ -12,13 +14,16 @@
         @map-click="mapClicked"
         @map-zoomend="resetStyle"
         ref="map">
-    </mapbox>
+      </mapbox>
+    </div>
+    <Login v-else @isLoggedIn="login"></Login>
   </div>
 </template>
 
 <script>
 import Mapbox from 'mapbox-gl-vue'
 import CustomNav from './CustomNav.vue'
+import Login from './Login.vue'
 export default {
   name: 'HomePage',
   data () {
@@ -31,7 +36,7 @@ export default {
     }
   },
   components: {
-    Mapbox, CustomNav
+    Mapbox, CustomNav, Login
   },
   methods: {
 
@@ -65,6 +70,11 @@ export default {
       };
       await xhr.send(null);
 
+    },
+
+    login() {
+      console.log("This is a security flaw!")
+      this.isLoggedIn = true;
     },
 
     addedMarker() {
