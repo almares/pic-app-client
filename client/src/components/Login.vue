@@ -53,6 +53,13 @@
     }
 
     #prettyButton {
-        /* Make this look like a hyperlink */
+        background:none!important;
+        color:inherit;
+        border:none; 
+        padding:0!important;
+        font: inherit;
+        /*border is optional*/
+        border-bottom:1px solid #444; 
+        cursor: pointer;
     }
 </style>
